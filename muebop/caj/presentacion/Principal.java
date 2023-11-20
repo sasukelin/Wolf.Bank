@@ -16,8 +16,8 @@ public class Principal {
      */
     public static void main(String[] args) {
         //CrearPersonaForm ejemploGridLayout = new CrearPersonaForm();
-        VentanaPrincipalForms ventanaPrincipalForm = new VentanaPrincipalForms();
+       //VentanaPrincipalForms ventanaPrincipalForm = new VentanaPrincipalForms();
         //RegistroUsuarioForm Registerform = new RegistroUsuarioForm();
-        //LoginForm L = new LoginForm();
+        LoginForm L = new LoginForm();
     }
 }

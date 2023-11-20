@@ -1,6 +1,8 @@
 package presentacion.RealizarTransaccion;
 
 import logicaNegocio.Banco;
+import logicaNegocio.CuentaBancaria;
+import logicaNegocio.Sesiones;
 import presentacion.RegistroUsuario.RegistroUsuarioForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
@@ -57,17 +59,19 @@ public class RealizarTransaccionForm extends JFrame{
                     String dinero = txtCantidadaEnviar.getText();
                     Double saldo = Double.parseDouble(dinero);
 
-                    Banco.transferir(nombre_de_usario, saldo);
+                    CuentaBancaria destinatario = Banco.transferir(nombre_de_usario, saldo);
+                    if(destinatario !=null){
+                        Sesiones.destinatario=destinatario;
+                        String mensaje = "La transaccion " + dinero + " ha sido correctamente hecho.";
+                        JOptionPane.showMessageDialog(btnEnvio, mensaje);
+                        dispose();
+                        VentanaPrincipalForms v = new VentanaPrincipalForms();
+                    }else {
+                        String mensaje = " Transaccion Fallida";
+                        JOptionPane.showMessageDialog(btnEnvio, mensaje);
+                    }
 
 
-                    String mensaje = "La transaccion " + dinero + " ha sido correctamente hecho.";
-
-
-
-
-                    JOptionPane.showMessageDialog(btnEnvio, mensaje);
-                    dispose();
-                    VentanaPrincipalForms v = new VentanaPrincipalForms();
                 }
             });
 

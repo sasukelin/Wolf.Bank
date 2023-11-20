@@ -7,10 +7,14 @@ import java.util.Scanner;
 public class Banco {
     private static LinkedList<CuentaBancaria> cuentasBancarias = new LinkedList<>();
     private static CuentaBancaria usuarioAutenticado;
-    
+    private static boolean usuarioRegistrado;
     static Scanner lector = new Scanner(System.in);
+   
 
-    public static void  registrar(CuentaBancaria usuario) {
+
+
+    public static void registrar(CuentaBancaria usuario) {
+
         if (!cuentasBancarias.contains(usuario)) {
             cuentasBancarias.add(usuario);
 
@@ -18,9 +22,10 @@ public class Banco {
             System.out.println("El Usuario " + usuario.getNombre()
                     + " ya existe. No se puede registrar nuevamente.");
         }
+
     }
 
-    public static void autentificar(String nombreUsuario, String contraseña) {
+    public static CuentaBancaria Autenticar(String nombreUsuario, String contraseña) {
         CuentaBancaria usuarioEncontrado = null;
 
         for (CuentaBancaria Usuario : cuentasBancarias) {
@@ -33,16 +38,17 @@ public class Banco {
             if (usuarioEncontrado.getContraseña().equals(contraseña)) {
                 usuarioAutenticado = usuarioEncontrado;
                 System.out.println("Autenticación exitosa para el usuario " + nombreUsuario);
-                userActions();
 
+                return usuarioAutenticado;
             } else {
                 System.out.println("Contraseña incorrecta ");
             }
         } else {
             System.out.println("El usuario no existe");
         }
+        return usuarioEncontrado;
     }
-
+/*
     public static void userActions(){
         int opcion = -1;
 
@@ -83,9 +89,10 @@ public class Banco {
     }
 
 
+*/
 
+    public static CuentaBancaria transferir(String nombreDestinatario, double cantidad) {
 
-    public static void transferir(String nombreDestinatario, double cantidad) {
         if (usuarioAutenticado != null) {
             CuentaBancaria destinatario = null;
             for (CuentaBancaria usuario : cuentasBancarias) {
@@ -101,7 +108,7 @@ public class Banco {
 
                     usuarioAutenticado.setSaldo(saldoOrigen - cantidad);
                     destinatario.setSaldo(saldoDestinatario + cantidad);
-                    System.out.println("Transferencia de " + cantidad + " realizada exitosamente");
+                     return usuarioAutenticado;
                 } else {
                     System.out.println("Saldo insuficiente");
                 }
@@ -109,5 +116,6 @@ public class Banco {
         } else {
             System.out.println("El Destinatario " + nombreDestinatario + " no existe");
         }
+        return null;
     }
 }

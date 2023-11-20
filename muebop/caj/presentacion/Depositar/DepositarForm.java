@@ -1,6 +1,7 @@
 package presentacion.Depositar;
 
 import logicaNegocio.CuentaBancaria;
+import logicaNegocio.Sesiones;
 import presentacion.RegistroUsuario.RegistroUsuarioForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
@@ -44,12 +45,9 @@ public class DepositarForm extends JFrame {
                 String dinero = txtDeposito.getText();
                 Double saldo = Double.parseDouble(dinero);
 
-                CuentaBancaria.depositar(saldo);
+                Sesiones.usuarioAutenticado.depositar(saldo);
 
                 String mensaje ="El Deposito de " + saldo + " fue exitoso";
-
-
-
 
                 JOptionPane.showMessageDialog(btnGuardar, mensaje);
                 dispose();
@@ -59,11 +57,7 @@ public class DepositarForm extends JFrame {
 
         btnVolver.addActionListener(new ActionListener() {
             @Override
-
             public void actionPerformed(ActionEvent e) {
-
-
-
                 dispose();
                 VentanaPrincipalForms v = new VentanaPrincipalForms();
             }

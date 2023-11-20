@@ -2,6 +2,7 @@ package presentacion.RegistroUsuario;
 
 import logicaNegocio.Banco;
 import logicaNegocio.CuentaBancaria;
+import logicaNegocio.Sesiones;
 import presentacion.Login.LoginForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
@@ -65,19 +66,29 @@ public class RegistroUsuarioForm extends JFrame {
                 String dinero = txtSaldo.getText();
                 String contraseña = txtContraseña.getText();
                 double saldo = Double.parseDouble(dinero);
-
-
                 CuentaBancaria usuario = new CuentaBancaria(nombre, saldo, contraseña);
 
-                Banco.registrar(usuario);
+               Banco.registrar(usuario);
+
+               /* if( usuarioRegistrado!=null){
+                   */
+                    String mensaje = "El Usuario " + nombre + " ha sido registrado exitosamente.";
+
+                    JOptionPane.showMessageDialog(btnGuardar, mensaje);
+                    dispose();
+                    // TODO: Llamar a la ventana de Login
+                    LoginForm loginForm = new LoginForm();
+               /* }else {
+                    String mensaje = "Registro Fallido ";
+                    JOptionPane.showMessageDialog(btnGuardar, mensaje);
+                }
+*/
 
 
-                String mensaje = "El Usuario " + nombre + " ha sido registrado exitosamente.";
 
-                JOptionPane.showMessageDialog(btnGuardar, mensaje);
-                dispose();
-                // TODO: Llamar a la ventana de Login
-                LoginForm loginForm = new LoginForm();
+
+
+
             }
         });
 
@@ -89,7 +100,7 @@ public class RegistroUsuarioForm extends JFrame {
 
 
                 dispose();
-                VentanaPrincipalForms v = new VentanaPrincipalForms();
+                LoginForm loginForm = new LoginForm();
             }
         });
     }

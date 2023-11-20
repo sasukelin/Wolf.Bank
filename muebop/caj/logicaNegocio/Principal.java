@@ -49,7 +49,7 @@ public class Principal {
                         String user = lector.nextLine();
                         System.out.println("Ingrese la contraseña: ");
                         String password = lector.nextLine();
-                        WolfBank.autentificar(user, password);
+                        WolfBank.Autenticar(user, password);
                         System.out.println("\n");
                     }
                     case 0 -> {

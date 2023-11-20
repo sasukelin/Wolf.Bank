@@ -1,6 +1,7 @@
 package presentacion.Retiro;
 
 import logicaNegocio.CuentaBancaria;
+import logicaNegocio.Sesiones;
 import presentacion.RegistroUsuario.RegistroUsuarioForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
@@ -46,9 +47,9 @@ public class RetiroForm extends JFrame{
                 String dinero = txtDinero.getText();
                 Double saldo = Double.parseDouble(dinero);
 
-                CuentaBancaria.depositar(saldo);
+                Sesiones.usuarioAutenticado.retirar(saldo);
 
-                String mensaje = "El Usuario " + dinero + " ha sido autentificado exitosamente.";
+                String mensaje = "El retiro de  " + dinero + " ha sido  exitoso.";
 
 
                 JOptionPane.showMessageDialog(btnRetiro, mensaje);

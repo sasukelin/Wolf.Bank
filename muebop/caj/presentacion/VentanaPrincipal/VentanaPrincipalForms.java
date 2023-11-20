@@ -1,9 +1,11 @@
 package presentacion.VentanaPrincipal;
 
 
+import presentacion.ColsutarSaldo.ColsutarSaldoForm;
+import presentacion.Depositar.DepositarForm;
 import presentacion.Login.LoginForm;
 import presentacion.RealizarTransaccion.RealizarTransaccionForm;
-import presentacion.RegistroUsuario.RegistroUsuarioForm;
+import presentacion.Retiro.RetiroForm;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,65 +17,18 @@ import java.awt.event.ActionListener;
  */
 public class VentanaPrincipalForms extends JFrame {
     private JPanel pnlPrincipal;
+    private JButton btnDeposit;
+    private JButton btnGetSaldo;
+    private JButton btnRetirar;
+    private JButton btnTransferir;
+    private JButton btnSalir;
 
     /**
      * Método que inicializa el menú con las opciones para el usuario.
      *
      * Complejidad temporal: O(1) Complejidad Constante.
      */
-    private void inicializarMenu() {
-        JMenuBar menuBar = new JMenuBar();
-        this.setJMenuBar(menuBar);
 
-        JMenu usuarioMenu = new JMenu("Inicio");
-        menuBar.add(usuarioMenu);
-
-        JMenuItem LoginFormItem = new JMenuItem("Login");
-        usuarioMenu.add(LoginFormItem);
-
-        JMenuItem RealizarTransaccionFormItem= new JMenuItem("Consultar saldo");
-        usuarioMenu.add(RealizarTransaccionFormItem);
-
-        JMenuItem RegistroDePersonaFormItem = new JMenuItem("Registro De cuenta");
-        usuarioMenu.add(RegistroDePersonaFormItem);
-
-        RegistroDePersonaFormItem.addActionListener(new ActionListener() {
-            @Override
-            /**
-             * Evento click en el menú "Ingresar Persona".
-             *
-             * Complejidad temporal: O(1) Complejidad Constante.
-             */
-            public void actionPerformed(ActionEvent e) {
-                RegistroUsuarioForm registroDeUsuarioForm = new RegistroUsuarioForm();
-            }
-        });
-
-        LoginFormItem.addActionListener(new ActionListener() {
-            @Override
-            /**
-             * Evento click en el menú "Consultar Personas".
-             *
-             * Complejidad temporal: O(1) Complejidad Constante.
-             */
-            public void actionPerformed(ActionEvent e) {
-                //JOptionPane.showMessageDialog(consultarPersonasItem, "Opción seleccionada: Consultar Personas");
-                LoginForm Form = new LoginForm();
-            }
-        });
-
-        RealizarTransaccionFormItem.addActionListener(new ActionListener() {
-            @Override
-            /**
-             * Evento click en el menú "Ingresar Persona".
-             *
-             * Complejidad temporal: O(1) Complejidad Constante.
-             */
-            public void actionPerformed(ActionEvent e) {
-                RealizarTransaccionForm registroDeUsuarioForm = new RealizarTransaccionForm ();
-            }
-        });
-    }
 
     /**
      * Constructor de la clase EjemploGridLayout
@@ -81,14 +36,14 @@ public class VentanaPrincipalForms extends JFrame {
      * Complejidad Temporal: O(1) Tiempo Constante.
      */
     public VentanaPrincipalForms() {
-        this.inicializarMenu();
+
 
         // Obtener el tamaño de la pantalla
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         // Definir la dimensión deseada para la ventana
-        int ventanaAncho = 100;
-        int ventanaAlto = 100;
+        int ventanaAncho = 1920;
+        int ventanaAlto = 1200;
 
         // Asegurarse de que la ventana no sea más grande que la pantalla
         ventanaAncho = Math.min(ventanaAncho, screenSize.width);
@@ -108,5 +63,51 @@ public class VentanaPrincipalForms extends JFrame {
         this.setResizable(false);
         // Se muestra la ventana como visible
         this.setVisible(true);
+
+        btnDeposit.addActionListener(new ActionListener() {
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+               dispose();
+
+                DepositarForm DepositarForm = new DepositarForm();
+            }
+        });
+        btnTransferir.addActionListener(new ActionListener() {
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                RealizarTransaccionForm TransferirForm = new RealizarTransaccionForm();
+            }
+        });
+
+        btnRetirar.addActionListener(new ActionListener() {
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                RetiroForm RetiroForm = new RetiroForm();
+            }
+        });
+
+        btnGetSaldo.addActionListener(new ActionListener() {
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                ColsutarSaldoForm ColsutarSaldoForm = new ColsutarSaldoForm();
+            }
+        });
+
+        btnSalir.addActionListener(new ActionListener() {
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                LoginForm loginForm = new LoginForm();
+            }
+        });
+
     }
 }

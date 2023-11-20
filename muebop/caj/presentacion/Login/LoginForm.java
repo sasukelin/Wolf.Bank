@@ -2,6 +2,8 @@ package presentacion.Login;
 
 
 import logicaNegocio.Banco;
+import logicaNegocio.CuentaBancaria;
+import logicaNegocio.Sesiones;
 import presentacion.RegistroUsuario.RegistroUsuarioForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
@@ -65,16 +67,17 @@ public class LoginForm extends JFrame {
 
                 String nombre = txtNombre.getText();
                 String contraseña = new String(txtContraseña.getText());
-
-
-                String mensaje = "El Usuario " + nombre + " ha sido autentificado exitosamente.";
-
-
-                Banco.autentificar(nombre, contraseña);
-
-                JOptionPane.showMessageDialog(btnGuardar, mensaje);
-                dispose();
-                VentanaPrincipalForms v = new VentanaPrincipalForms();
+                CuentaBancaria usuarioAutenticado= Banco.Autenticar(nombre, contraseña);
+                if(usuarioAutenticado !=null ){
+                    Sesiones.usuarioAutenticado=usuarioAutenticado;
+                    String mensaje = "El Usuario " + nombre + " ha sido autenticado exitosamente.";
+                    JOptionPane.showMessageDialog(btnGuardar, mensaje);
+                    dispose();
+                    VentanaPrincipalForms v = new VentanaPrincipalForms();
+                }else{
+                    String mensaje = "El Usuario " + nombre + " no autenticado exitosamente ";
+                    JOptionPane.showMessageDialog(btnGuardar, mensaje);
+                }
             }
         });
 

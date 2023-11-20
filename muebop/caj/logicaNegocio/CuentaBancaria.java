@@ -6,7 +6,7 @@ package logicaNegocio;
 public class CuentaBancaria {
 
     private String nombre;
-    private double saldo;
+    private static double saldo;
     private String contraseña;
 
 
@@ -53,7 +53,7 @@ public class CuentaBancaria {
      * Complejidad temporal: O(1) Tiempo constante
      */
 
-    public double getSaldo() {
+    public static double getSaldo() {
 
         return saldo;
     }
@@ -84,7 +84,7 @@ public class CuentaBancaria {
 
 
 
-    public void depositar(double cantidad) {
+    public  void depositar(double cantidad) {
 
             double saldoActual = this.getSaldo();
             double nuevoSaldo = saldoActual + cantidad;
