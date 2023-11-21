@@ -46,15 +46,20 @@ public class RetiroForm extends JFrame{
 
                 String dinero = txtDinero.getText();
                 Double saldo = Double.parseDouble(dinero);
+                Double balance= Sesiones.usuarioAutenticado.getSaldo();
+                if(balance>=saldo){
+                    Sesiones.usuarioAutenticado.retirar(saldo);
+                    String mensaje = "El retiro de  " + dinero + " ha sido  exitoso.";
+                    JOptionPane.showMessageDialog(btnRetiro, mensaje);
+                    dispose();
+                    VentanaPrincipalForms v = new VentanaPrincipalForms();
+                }else{
+                    String mensaje = "Saldo insuficiente.";
+                    JOptionPane.showMessageDialog(btnRetiro, mensaje);
+                    dispose();
+                    VentanaPrincipalForms v = new VentanaPrincipalForms();
+                }
 
-                Sesiones.usuarioAutenticado.retirar(saldo);
-
-                String mensaje = "El retiro de  " + dinero + " ha sido  exitoso.";
-
-
-                JOptionPane.showMessageDialog(btnRetiro, mensaje);
-                dispose();
-                VentanaPrincipalForms v = new VentanaPrincipalForms();
             }
         });
 

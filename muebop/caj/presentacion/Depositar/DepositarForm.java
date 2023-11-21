@@ -45,10 +45,9 @@ public class DepositarForm extends JFrame {
                 String dinero = txtDeposito.getText();
                 Double saldo = Double.parseDouble(dinero);
 
+
                 Sesiones.usuarioAutenticado.depositar(saldo);
-
-                String mensaje ="El Deposito de " + saldo + " fue exitoso";
-
+                String mensaje = "El Deposito de " + saldo + " fue exitoso";
                 JOptionPane.showMessageDialog(btnGuardar, mensaje);
                 dispose();
                 VentanaPrincipalForms v = new VentanaPrincipalForms();

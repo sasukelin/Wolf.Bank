@@ -83,8 +83,6 @@ public class RealizarTransaccionForm extends JFrame{
                  * Complejidad Temporal: O(1) Tiempo Constante.
                  */
                 public void actionPerformed(ActionEvent e) {
-
-
                     dispose();
                     VentanaPrincipalForms v = new VentanaPrincipalForms();
                 }

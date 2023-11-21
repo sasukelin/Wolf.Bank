@@ -20,14 +20,18 @@ public class LoginForm extends JFrame {
     private JPanel pnlPrincipal;
     private JTextField txtNombre;
 
-    private JTextField txtContraseña;
     private JButton btnGuardar;
-    private JLabel lblNombre;
 
-    private JLabel lblContraseña;
     private javax.swing.JPanel JPanel;
     private JButton btnRegister;
     private JLabel lblWolf;
+
+    private JRadioButton recuerdaLaContraseñaRadioButton;
+    private JTextField txtContraseña;
+    private JTextField txtSaldo;
+    private JLabel lblSaldo;
+    private JLabel lblNombre;
+    private JLabel lblContraseña;
 
 
     /**
@@ -42,7 +46,7 @@ public class LoginForm extends JFrame {
         // Se asigna el panel principal al JFrame
         this.setContentPane(pnlPrincipal);
         // Se asigna el tamaño por defecto
-        this.setSize(500, 300);
+        this.setSize(800, 490);
         // Se asigna la posición por defecto
         this.setLocation(100, 100);
         // No se permite redimensionar la ventana
