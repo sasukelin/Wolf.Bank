@@ -18,7 +18,6 @@ public class RealizarTransaccionForm extends JFrame{
     private JLabel lblNombreCuenta;
     private JLabel lblCantida;
     private JButton btnVolver;
-    private JLabel lblWolf;
 
     /**
          * Constructor de la clase EjemploGridLayout

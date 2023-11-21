@@ -1,6 +1,8 @@
 package presentacion;
 
+import presentacion.Depositar.DepositarForm;
 import presentacion.Login.LoginForm;
+import presentacion.RealizarTransaccion.RealizarTransaccionForm;
 import presentacion.RegistroUsuario.RegistroUsuarioForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
@@ -19,5 +21,8 @@ public class Principal {
        //VentanaPrincipalForms ventanaPrincipalForm = new VentanaPrincipalForms();
         //RegistroUsuarioForm Registerform = new RegistroUsuarioForm();
         LoginForm L = new LoginForm();
+        //RealizarTransaccionForm n = new RealizarTransaccionForm();
+        //DepositarForm n= new DepositarForm();
+
     }
 }

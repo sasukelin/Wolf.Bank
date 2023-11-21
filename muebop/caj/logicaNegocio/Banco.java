@@ -1,5 +1,6 @@
 package logicaNegocio;
 
+import javax.swing.*;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -13,14 +14,21 @@ public class Banco {
 
 
 
-    public static void registrar(CuentaBancaria usuario) {
+    public static boolean registrar(CuentaBancaria usuario) {
+        boolean existe = false;
+        for (CuentaBancaria Usuario : cuentasBancarias) {
+            if (Usuario.getNombre().equals(usuario.getNombre())) {
+                existe = true;
+            }
+        }
 
-        if (!cuentasBancarias.contains(usuario)) {
+        if (!existe) {
             cuentasBancarias.add(usuario);
+            return true;
 
         } else {
-            System.out.println("El Usuario " + usuario.getNombre()
-                    + " ya existe. No se puede registrar nuevamente.");
+
+            return false;
         }
 
     }

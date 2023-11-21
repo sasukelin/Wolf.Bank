@@ -2,9 +2,7 @@ package presentacion.RegistroUsuario;
 
 import logicaNegocio.Banco;
 import logicaNegocio.CuentaBancaria;
-import logicaNegocio.Sesiones;
 import presentacion.Login.LoginForm;
-import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
 
 import javax.swing.*;
@@ -16,7 +14,7 @@ import java.awt.event.ActionListener;
  * Hereda de JFrame y utiliza el layout GridLayout (Por defecto en IntelliJ).
  */
 public class RegistroUsuarioForm extends JFrame {
-    private JPanel pnlPrincipal;
+    private JPanel JPanell;
     private JTextField txtNombre;
     private JTextField txtSaldo;
     private JTextField txtContraseña;
@@ -25,8 +23,8 @@ public class RegistroUsuarioForm extends JFrame {
     private JLabel lblSaldo;
     private JLabel lblContraseña;
     private JLabel lblWolf;
+    private javax.swing.JPanel pnlPrincipal;
     private JButton btnVolver;
-
 
     /**
      * Constructor de la clase EjemploGridLayout
@@ -38,21 +36,21 @@ public class RegistroUsuarioForm extends JFrame {
         // Elimina el proceso cuando se cierra la ventana
         // this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Se asigna el panel principal al JFrame
-        this.setContentPane(pnlPrincipal);
+        this.setContentPane(JPanell);
         // Se asigna el tamaño por defecto
-        this.setSize(720, 520);
+        this.setSize(900, 600);
         // Se asigna la posición por defecto
         this.setLocation(100, 100);
         // No se permite redimensionar la ventana
         this.setResizable(false);
         // Se muestra la ventana como visible
         this.setVisible(true);
-        setContentPane(pnlPrincipal);
+        setContentPane(JPanell);
 
         // Elimina el proceso cuando se cierra la ventana
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Se asigna el panel principal al JFrame
-        this.setContentPane(pnlPrincipal);
+        this.setContentPane(JPanell);
 
         btnGuardar.addActionListener(new ActionListener() {
             @Override
@@ -68,16 +66,22 @@ public class RegistroUsuarioForm extends JFrame {
                 double saldo = Double.parseDouble(dinero);
                 CuentaBancaria usuario = new CuentaBancaria(nombre, saldo, contraseña);
 
-               Banco.registrar(usuario);
+               if(!Banco.registrar(usuario)) {
+                   JOptionPane.showMessageDialog(btnGuardar, "El Usuario " + usuario.getNombre()
+                           + " ya existe. No se puede registrar nuevamente.");
+               }
+               else {
+                   String mensaje = "El Usuario " + nombre + " ha sido registrado exitosamente.";
+
+                   JOptionPane.showMessageDialog(btnGuardar, mensaje);
+                   dispose();
+                   // TODO: Llamar a la ventana de Login
+                   LoginForm loginForm = new LoginForm();
+               }
 
                /* if( usuarioRegistrado!=null){
                    */
-                    String mensaje = "El Usuario " + nombre + " ha sido registrado exitosamente.";
 
-                    JOptionPane.showMessageDialog(btnGuardar, mensaje);
-                    dispose();
-                    // TODO: Llamar a la ventana de Login
-                    LoginForm loginForm = new LoginForm();
                /* }else {
                     String mensaje = "Registro Fallido ";
                     JOptionPane.showMessageDialog(btnGuardar, mensaje);

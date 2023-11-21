@@ -1,6 +1,7 @@
 package presentacion.ColsutarSaldo;
 
 import logicaNegocio.CuentaBancaria;
+import logicaNegocio.Sesiones;
 import presentacion.RegistroUsuario.RegistroUsuarioForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
@@ -44,7 +45,7 @@ public class ColsutarSaldoForm  extends JFrame {
              * Complejidad Temporal: O(1) Tiempo Constante.
              */
             public void actionPerformed(ActionEvent e) {
-                 Double saldo= CuentaBancaria.getSaldo();
+                 Double saldo=  Sesiones.usuarioAutenticado.getSaldo();
                 String mensaje = "Tu saldo es de  " + saldo + " ";
                 JOptionPane.showMessageDialog(btnConsultarSaldo, mensaje);
                 dispose();

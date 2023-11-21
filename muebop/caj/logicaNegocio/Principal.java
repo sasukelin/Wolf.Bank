@@ -1,7 +1,7 @@
 package logicaNegocio;
 
 import java.util.Scanner;
-
+/*
 public class Principal {
     public static void main(String[] args) {
         try (Scanner lector = new Scanner(System.in)) {
@@ -49,7 +49,7 @@ public class Principal {
                         String user = lector.nextLine();
                         System.out.println("Ingrese la contraseña: ");
                         String password = lector.nextLine();
-                        WolfBank.Autenticar(user, password);
+                        //WolfBank.Autenticar(user, password);
                         System.out.println("\n");
                     }
                     case 0 -> {
@@ -67,4 +67,4 @@ public class Principal {
         }
     }
 }
-
+*/

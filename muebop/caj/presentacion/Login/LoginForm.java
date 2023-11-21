@@ -28,6 +28,7 @@ public class LoginForm extends JFrame {
 
     private JRadioButton recuerdaLaContraseñaRadioButton;
     private JTextField txtContraseña;
+    private JLabel ImageLogo;
     private JTextField txtSaldo;
     private JLabel lblSaldo;
     private JLabel lblNombre;
@@ -40,15 +41,14 @@ public class LoginForm extends JFrame {
      * Complejidad Temporal: O(1) Tiempo Constante.
      */
     public LoginForm() {
-
         // Elimina el proceso cuando se cierra la ventana
         // this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Se asigna el panel principal al JFrame
         this.setContentPane(pnlPrincipal);
         // Se asigna el tamaño por defecto
-        this.setSize(800, 490);
+        this.setSize(900, 600);
         // Se asigna la posición por defecto
-        this.setLocation(100, 100);
+        this.setLocation(0, 0);
         // No se permite redimensionar la ventana
         this.setResizable(false);
         // Se muestra la ventana como visible
@@ -58,6 +58,7 @@ public class LoginForm extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Se asigna el panel principal al JFrame
         this.setContentPane(pnlPrincipal);
+
 
 
         btnGuardar.addActionListener(new ActionListener() {
@@ -100,6 +101,7 @@ public class LoginForm extends JFrame {
             }
         });
     }
+
 
 
 }
