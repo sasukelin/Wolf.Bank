@@ -45,6 +45,11 @@ public class RetiroForm extends JFrame{
             public void actionPerformed(ActionEvent e) {
 
                 String dinero = txtDinero.getText();
+
+                if (!dinero.matches("\\d+(\\.\\d+)?")) {
+                    JOptionPane.showMessageDialog(btnRetiro, "El saldo debe ser un número válido.");
+                    return;  // Salir del método si el saldo no es válido
+                }
                 Double saldo = Double.parseDouble(dinero);
                 Double balance= Sesiones.usuarioAutenticado.getSaldo();
                 if(balance>=saldo){

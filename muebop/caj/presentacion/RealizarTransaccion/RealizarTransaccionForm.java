@@ -56,6 +56,10 @@ public class RealizarTransaccionForm extends JFrame{
 
                     String nombre_de_usario = txtNombreCuenta.getText();
                     String dinero = txtCantidadaEnviar.getText();
+                    if (!dinero.matches("\\d+(\\.\\d+)?")) {
+                        JOptionPane.showMessageDialog( btnEnvio, "El saldo debe ser un número válido.");
+                        return;  // Salir del método si el saldo no es válido
+                    }
                     Double saldo = Double.parseDouble(dinero);
 
                     CuentaBancaria destinatario = Banco.transferir(nombre_de_usario, saldo);
