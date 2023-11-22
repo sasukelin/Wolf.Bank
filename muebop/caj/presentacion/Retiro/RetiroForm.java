@@ -25,7 +25,7 @@ public class RetiroForm extends JFrame{
         // Se asigna el panel principal al JFrame
         this.setContentPane(pnlPrincipal);
         // Se asigna el tamaño por defecto
-        this.setSize(500, 300);
+        this.setSize(500, 550);
         // Se asigna la posición por defecto
         this.setLocation(100, 100);
         // No se permite redimensionar la ventana

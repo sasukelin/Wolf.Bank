@@ -16,13 +16,17 @@ public class Banco {
 
     public static boolean registrar(CuentaBancaria usuario) {
         boolean existe = false;
+        boolean existe2=false;
         for (CuentaBancaria Usuario : cuentasBancarias) {
-            if (Usuario.getNombre().equals(usuario.getNombre())) {
+            if (Usuario.getEmail().equals(usuario.getEmail()) ) {
                 existe = true;
+            }
+            if(Usuario.getIdentificacion()==(usuario.getIdentificacion())){
+                existe2=true;
             }
         }
 
-        if (!existe) {
+        if (!existe && !existe2) {
             cuentasBancarias.add(usuario);
             return true;
 
@@ -33,11 +37,11 @@ public class Banco {
 
     }
 
-    public static CuentaBancaria Autenticar(String nombreUsuario, String contraseña) {
+    public static CuentaBancaria Autenticar(String usuarioEmail, String contraseña) {
         CuentaBancaria usuarioEncontrado = null;
 
         for (CuentaBancaria Usuario : cuentasBancarias) {
-            if (Usuario.getNombre().equals(nombreUsuario)) {
+            if (Usuario.getEmail().equals(usuarioEmail)) {
                 usuarioEncontrado = Usuario;
                 break;
             }
@@ -45,7 +49,7 @@ public class Banco {
         if (usuarioEncontrado != null) {
             if (usuarioEncontrado.getContraseña().equals(contraseña)) {
                 usuarioAutenticado = usuarioEncontrado;
-                System.out.println("Autenticación exitosa para el usuario " + nombreUsuario);
+                System.out.println("Autenticación exitosa para el usuario " + usuarioEmail);
 
                 return usuarioAutenticado;
             } else {

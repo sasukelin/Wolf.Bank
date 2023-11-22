@@ -6,7 +6,11 @@ package logicaNegocio;
 public class CuentaBancaria {
 
     private String nombre;
+    private String apellido;
+    private int  identificacion;
     private double saldo;
+
+    private  String email;
     private String contraseña;
 
 
@@ -24,9 +28,12 @@ public class CuentaBancaria {
      * Complejidad temporal: O(1) Tiempo constante
      */
 
-    public CuentaBancaria(String nombre, double saldo, String contraseña) {
+    public CuentaBancaria(String nombre, String apellido, int identificacion,  double saldo,String  email, String contraseña) {
         this.nombre = nombre;
+        this.apellido=apellido;
+        this.identificacion=identificacion;
         this.saldo = saldo;
+        this.email= email;
         this.contraseña = contraseña;
     }
 
@@ -81,8 +88,17 @@ public class CuentaBancaria {
         return contraseña;
     }
 
+    public int getIdentificacion() {
+        return identificacion;
+    }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public String getApellido() {
+        return apellido;
+    }
 
     public  void depositar(double cantidad) {
 

@@ -42,8 +42,8 @@ public class VentanaPrincipalForms extends JFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         // Definir la dimensión deseada para la ventana
-        int ventanaAncho = 700;
-        int ventanaAlto = 1000;
+        int ventanaAncho = 1920;
+        int ventanaAlto = 1080;
 
         // Asegurarse de que la ventana no sea más grande que la pantalla
         ventanaAncho = Math.min(ventanaAncho, screenSize.width);

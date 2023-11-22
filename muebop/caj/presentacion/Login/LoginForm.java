@@ -18,16 +18,16 @@ import java.awt.event.ActionListener;
  */
 public class LoginForm extends JFrame {
     private JPanel pnlPrincipal;
-    private JTextField txtNombre;
+    private JTextField txtEmail;
 
     private JButton btnGuardar;
 
     private javax.swing.JPanel JPanel;
     private JButton btnRegister;
-    private JLabel lblWolf;
 
     private JRadioButton recuerdaLaContraseñaRadioButton;
     private JTextField txtContraseña;
+    private JLabel lblimgLobo;
     private JLabel ImageLogo;
     private JTextField txtSaldo;
     private JLabel lblSaldo;
@@ -46,9 +46,9 @@ public class LoginForm extends JFrame {
         // Se asigna el panel principal al JFrame
         this.setContentPane(pnlPrincipal);
         // Se asigna el tamaño por defecto
-        this.setSize(900, 600);
+        this.setSize(1200, 720);
         // Se asigna la posición por defecto
-        this.setLocation(0, 0);
+        this.setLocation(200, 200);
         // No se permite redimensionar la ventana
         this.setResizable(false);
         // Se muestra la ventana como visible
@@ -60,7 +60,6 @@ public class LoginForm extends JFrame {
         this.setContentPane(pnlPrincipal);
 
 
-
         btnGuardar.addActionListener(new ActionListener() {
             @Override
             /**
@@ -70,17 +69,22 @@ public class LoginForm extends JFrame {
              */
             public void actionPerformed(ActionEvent e) {
 
-                String nombre = txtNombre.getText();
+                String email = txtEmail.getText();
+                // Validar que el email tenga un formato válido
+                if (!email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}$")) {
+                    JOptionPane.showMessageDialog(btnGuardar, "El correo electrónico no tiene un formato válido.");
+                    return;  // Salir del método si el correo electrónico no es válido
+                }
                 String contraseña = new String(txtContraseña.getText());
-                CuentaBancaria usuarioAutenticado= Banco.Autenticar(nombre, contraseña);
+                CuentaBancaria usuarioAutenticado= Banco.Autenticar(email, contraseña);
                 if(usuarioAutenticado !=null ){
                     Sesiones.usuarioAutenticado=usuarioAutenticado;
-                    String mensaje = "El Usuario " + nombre + " ha sido autenticado exitosamente.";
+                    String mensaje = "El Usuario " + email + " ha sido autenticado exitosamente.";
                     JOptionPane.showMessageDialog(btnGuardar, mensaje);
                     dispose();
                     VentanaPrincipalForms v = new VentanaPrincipalForms();
                 }else{
-                    String mensaje = "El Usuario " + nombre + " no autenticado exitosamente ";
+                    String mensaje = "El Usuario " + email + " no autenticado exitosamente ";
                     JOptionPane.showMessageDialog(btnGuardar, mensaje);
                 }
             }

@@ -45,6 +45,10 @@ public class DepositarForm extends JFrame {
                 String dinero = txtDeposito.getText();
                 Double saldo = Double.parseDouble(dinero);
 
+                if (!dinero.matches("\\d+(\\.\\d+)?")) {
+                    JOptionPane.showMessageDialog(btnGuardar, "El saldo debe ser un número válido.");
+                    return;  // Salir del método si el saldo no es válido
+                }
 
                 Sesiones.usuarioAutenticado.depositar(saldo);
                 String mensaje = "El Deposito de " + saldo + " fue exitoso";
