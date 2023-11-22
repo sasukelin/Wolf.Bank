@@ -105,7 +105,7 @@ public class CuentaBancaria {
             double saldoActual = this.getSaldo();
             double nuevoSaldo = saldoActual + cantidad;
             this.setSaldo(nuevoSaldo);
-            System.out.println("Deposito de " + cantidad + " realizado exitosamente");
+
 
     }
 
@@ -117,7 +117,7 @@ public class CuentaBancaria {
             if (saldoActual2 >= cantidad2) {
                 double nuevoSaldo2 = saldoActual2 - cantidad2;
                 this.setSaldo(nuevoSaldo2);
-                System.out.println("Retiro de " + cantidad2 + " realizado exitosamente");
+
             } else {
                 System.out.println("Saldo insuficiente");
             }

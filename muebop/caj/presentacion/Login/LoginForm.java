@@ -76,6 +76,7 @@ public class LoginForm extends JFrame {
                     return;  // Salir del método si el correo electrónico no es válido
                 }
                 String contraseña = new String(txtContraseña.getText());
+
                 CuentaBancaria usuarioAutenticado= Banco.Autenticar(email, contraseña);
                 if(usuarioAutenticado !=null ){
                     Sesiones.usuarioAutenticado=usuarioAutenticado;

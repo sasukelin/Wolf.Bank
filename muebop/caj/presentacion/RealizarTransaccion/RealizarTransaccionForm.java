@@ -3,7 +3,6 @@ package presentacion.RealizarTransaccion;
 import logicaNegocio.Banco;
 import logicaNegocio.CuentaBancaria;
 import logicaNegocio.Sesiones;
-import presentacion.RegistroUsuario.RegistroUsuarioForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
 import javax.swing.*;
@@ -12,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class RealizarTransaccionForm extends JFrame{
     private JPanel pnlPrincipal;
-    private JTextField txtNombreCuenta;
+    private JTextField txtIdCuenta;
     private JTextField txtCantidadaEnviar;
     private JButton btnEnvio;
     private JLabel lblNombreCuenta;
@@ -54,15 +53,21 @@ public class RealizarTransaccionForm extends JFrame{
                  */
                 public void actionPerformed(ActionEvent e) {
 
-                    String nombre_de_usario = txtNombreCuenta.getText();
+                    String  cuentaDestinario = txtIdCuenta.getText();
                     String dinero = txtCantidadaEnviar.getText();
+                    if (!cuentaDestinario.matches("\\d+")) {
+                        JOptionPane.showMessageDialog( btnEnvio, "La identificación debe ser un número válido.");
+                        return;
+                    }
+
                     if (!dinero.matches("\\d+(\\.\\d+)?")) {
                         JOptionPane.showMessageDialog( btnEnvio, "El saldo debe ser un número válido.");
                         return;  // Salir del método si el saldo no es válido
                     }
+                    int id = Integer.parseInt( cuentaDestinario);
                     Double saldo = Double.parseDouble(dinero);
 
-                    CuentaBancaria destinatario = Banco.transferir(nombre_de_usario, saldo);
+                    CuentaBancaria destinatario = Banco.transferir(id , saldo);
                     if(destinatario !=null){
                         Sesiones.destinatario=destinatario;
                         String mensaje = "La transaccion " + dinero + " ha sido correctamente hecho.";

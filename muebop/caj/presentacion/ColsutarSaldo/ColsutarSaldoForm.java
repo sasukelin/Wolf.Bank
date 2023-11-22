@@ -62,7 +62,6 @@ public class ColsutarSaldoForm  extends JFrame {
              */
             public void actionPerformed(ActionEvent e) {
 
-
                 dispose();
                 VentanaPrincipalForms ventanaPrincipalForm = new VentanaPrincipalForms();
             }
