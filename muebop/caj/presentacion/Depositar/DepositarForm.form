@@ -29,7 +29,7 @@
             </constraints>
             <properties>
               <background color="-16777216"/>
-              <foreground color="-394241"/>
+              <foreground color="-328449"/>
             </properties>
           </component>
           <grid id="c5cae" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
