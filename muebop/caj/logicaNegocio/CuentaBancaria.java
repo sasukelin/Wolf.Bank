@@ -109,7 +109,6 @@ public class CuentaBancaria {
 
     }
 
-
     public void retirar(double cantidad2) {
 
             double saldoActual2 = this.getSaldo();

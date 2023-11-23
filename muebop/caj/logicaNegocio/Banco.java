@@ -42,7 +42,8 @@ public class Banco {
 
                 return usuarioAutenticado;
             } else {
-              //  System.out.println("Contraseña incorrecta ");
+              return null;
+
             }
         } else {
             System.out.println("El usuario no existe");
@@ -69,11 +70,11 @@ public class Banco {
                     destinatario.setSaldo(saldoDestinatario + cantidad);
                      return usuarioAutenticado;
                 } else {
-                   // System.out.println("Saldo insuficiente");
+                   System.out.println("Saldo insuficiente");
                 }
             }
         } else {
-            //System.out.println("El Destinatario " + nombreDestinatario + " no existe");
+
         }
         return null;
     }

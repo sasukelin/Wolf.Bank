@@ -63,6 +63,16 @@ public class VentanaPrincipalForms extends JFrame {
         this.setResizable(false);
         // Se muestra la ventana como visible
         this.setVisible(true);
+        btnSalir.setBorderPainted(false);
+        btnDeposit.setBorderPainted(false);
+        btnTransferir.setBorderPainted(false);
+        btnRetirar.setBorderPainted(false);
+        btnGetSaldo.setBorderPainted(false);
+        btnSalir.setBorderPainted(false);
+
+        // Se muestra la ventana como visible
+        this.setVisible(true);
+
 
         btnDeposit.addActionListener(new ActionListener() {
             @Override
@@ -105,7 +115,7 @@ public class VentanaPrincipalForms extends JFrame {
 
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                LoginForm loginForm = new LoginForm();
+
             }
         });
 
