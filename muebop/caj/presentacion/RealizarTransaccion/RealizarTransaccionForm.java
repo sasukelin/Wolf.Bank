@@ -19,10 +19,11 @@ public class RealizarTransaccionForm extends JFrame{
     private JButton btnVolver;
 
     /**
-         * Constructor de la clase EjemploGridLayout
-         * <p>
-         * Complejidad Temporal: O(1) Tiempo Constante.
-         */
+     * Constructor de la clase RealizarTransaccionForm.
+     *
+     * Complejidad Temporal: O(1) Tiempo Constante.
+     */
+
         public RealizarTransaccionForm() {
 
             // Elimina el proceso cuando se cierra la ventana
@@ -52,22 +53,42 @@ public class RealizarTransaccionForm extends JFrame{
                  * Complejidad Temporal: O(1) Tiempo Constante.
                  */
                 public void actionPerformed(ActionEvent e) {
-
+                    // Obtiene la identificación del destinatario y la cantidad a enviar
                     String  cuentaDestinario = txtIdCuenta.getText();
                     String dinero = txtCantidadaEnviar.getText();
+
+                    /**
+                     * Condicional que verifica si lo que pone el usuario es un numero (no admite Strings).
+                     *
+                     * Complejidad Temporal: O(1) Tiempo Constante.
+                     */
                     if (!cuentaDestinario.matches("\\d+")) {
                         JOptionPane.showMessageDialog( btnEnvio, "La identificación debe ser un número válido.");
                         return;
                     }
 
+                    /**
+                     * Condicional que verifica si lo que pone el usuario es un numero (no admite Strings).
+                     *
+                     * Complejidad Temporal: O(1) Tiempo Constante.
+                     */
+
                     if (!dinero.matches("\\d+(\\.\\d+)?")) {
                         JOptionPane.showMessageDialog( btnEnvio, "El saldo debe ser un número válido.");
                         return;  // Salir del método si el saldo no es válido
                     }
+                    // Convertir las cadenas a valores numéricos
                     int id = Integer.parseInt( cuentaDestinario);
                     Double saldo = Double.parseDouble(dinero);
 
+                    // Realizar la transacción y obtener el destinatario
                     CuentaBancaria destinatario = Banco.transferir(id , saldo);
+
+                    /**
+                     * Condicional que verifica que la traccion haya sido corectamente enviada.
+                     *
+                     * Complejidad Temporal: O(1) Tiempo Constante.
+                     */
                     if(destinatario !=null){
                         Sesiones.destinatario=destinatario;
                         String mensaje = "La transaccion " + dinero + " ha sido correctamente hecho.";

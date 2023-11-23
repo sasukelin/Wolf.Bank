@@ -9,12 +9,17 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ColsutarSaldoForm  extends JFrame {
+public class    ColsutarSaldoForm  extends JFrame {
     private JPanel pnlPrincipal;
     private JButton btnConsultarSaldo;
     private JButton btnSalir;
 
 
+    /**
+     * Constructor de la clase ConsultarSaldoForm.
+     *
+     * Complejidad Temporal: O(1) Tiempo Constante.
+     */
     public  ColsutarSaldoForm() {
 
         // Elimina el proceso cuando se cierra la ventana
@@ -39,14 +44,18 @@ public class ColsutarSaldoForm  extends JFrame {
         btnConsultarSaldo.addActionListener(new ActionListener() {
             @Override
             /**
-             * Evento click del botón btnGuardar
+             * Evento click del botón btnConsultarSaldo
              *
              * Complejidad Temporal: O(1) Tiempo Constante.
              */
             public void actionPerformed(ActionEvent e) {
+
+                // Obtiene el saldo del usuario autenticado
                  Double saldo=  Sesiones.usuarioAutenticado.getSaldo();
+                // Muestra un mensaje con el saldo
                 String mensaje = "Tu saldo es de  " + saldo + " ";
                 JOptionPane.showMessageDialog(btnConsultarSaldo, mensaje);
+                // Cierra la ventana actual de consulta de saldo y vuelve a la ventana principal
                 dispose();
                 VentanaPrincipalForms v = new VentanaPrincipalForms();
 
@@ -56,7 +65,7 @@ public class ColsutarSaldoForm  extends JFrame {
         btnSalir.addActionListener(new ActionListener() {
             @Override
             /**
-             * Evento click del botón btnGuardar
+             * Evento click del botón btnSalir
              *
              * Complejidad Temporal: O(1) Tiempo Constante.
              */

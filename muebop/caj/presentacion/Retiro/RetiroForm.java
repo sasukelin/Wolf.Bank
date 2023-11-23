@@ -18,6 +18,12 @@ public class RetiroForm extends JFrame{
     private JButton btnVolver;
     private JLabel lblWolf;
 
+    /**
+     * Constructor de la clase RetiroForm.
+     *
+     * Complejidad Temporal: O(1) Tiempo Constante.
+     */
+
     public RetiroForm() {
 
         // Elimina el proceso cuando se cierra la ventana
@@ -38,6 +44,11 @@ public class RetiroForm extends JFrame{
         // Se asigna el panel principal al JFrame
         this.setContentPane(pnlPrincipal);
 
+        /**
+         * Evento click del botón btnRetiro
+         *
+         * Complejidad Temporal: O(1) Tiempo Constante.
+         */
 
         btnRetiro.addActionListener(new ActionListener() {
             @Override
@@ -46,12 +57,24 @@ public class RetiroForm extends JFrame{
 
                 String dinero = txtDinero.getText();
 
+
+                /**
+                 * Condicional que verifica si lo que pone el usuario es un numero (no admite Strings).
+                 *
+                 * Complejidad Temporal: O(1) Tiempo Constante.
+                 */
                 if (!dinero.matches("\\d+(\\.\\d+)?")) {
                     JOptionPane.showMessageDialog(btnRetiro, "El saldo debe ser un número válido.");
                     return;  // Salir del método si el saldo no es válido
                 }
                 Double saldo = Double.parseDouble(dinero);
                 Double balance= Sesiones.usuarioAutenticado.getSaldo();
+
+                /**
+                 * Condicional que verifica si el saldo del usuario autenticado sea mayor al monto a retirar.
+                 *
+                 * Complejidad Temporal: O(1) Tiempo Constante.
+                 */
                 if(balance>=saldo){
                     Sesiones.usuarioAutenticado.retirar(saldo);
                     String mensaje = "El retiro de  " + dinero + " ha sido  exitoso.";
@@ -67,6 +90,12 @@ public class RetiroForm extends JFrame{
 
             }
         });
+
+        /**
+         * Evento click del botón btnVolver
+         *
+         * Complejidad Temporal: O(1) Tiempo Constante.
+         */
 
         btnVolver.addActionListener(new ActionListener() {
             @Override

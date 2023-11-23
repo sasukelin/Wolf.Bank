@@ -24,14 +24,7 @@ public class VentanaPrincipalForms extends JFrame {
     private JButton btnSalir;
 
     /**
-     * Método que inicializa el menú con las opciones para el usuario.
-     *
-     * Complejidad temporal: O(1) Complejidad Constante.
-     */
-
-
-    /**
-     * Constructor de la clase EjemploGridLayout
+     * Constructor de la clase VentanaPrincipalForms
      *
      * Complejidad Temporal: O(1) Tiempo Constante.
      */
@@ -73,6 +66,11 @@ public class VentanaPrincipalForms extends JFrame {
         // Se muestra la ventana como visible
         this.setVisible(true);
 
+        /**
+         * Evento click del botón btnDeposit
+         *
+         * Complejidad Temporal: O(1) Tiempo Constante.
+         */
 
         btnDeposit.addActionListener(new ActionListener() {
             @Override
@@ -83,6 +81,12 @@ public class VentanaPrincipalForms extends JFrame {
                 DepositarForm DepositarForm = new DepositarForm();
             }
         });
+
+        /**
+         * Evento click del botón btnTransferir
+         *
+         * Complejidad Temporal: O(1) Tiempo Constante.
+         */
         btnTransferir.addActionListener(new ActionListener() {
             @Override
 
@@ -92,6 +96,11 @@ public class VentanaPrincipalForms extends JFrame {
             }
         });
 
+        /**
+         * Evento click del botón btnRetirar
+         *
+         * Complejidad Temporal: O(1) Tiempo Constante.
+         */
         btnRetirar.addActionListener(new ActionListener() {
             @Override
 
@@ -101,6 +110,11 @@ public class VentanaPrincipalForms extends JFrame {
             }
         });
 
+        /**
+         * Evento click del botón btnSaldo
+         *
+         * Complejidad Temporal: O(1) Tiempo Constante.
+         */
         btnGetSaldo.addActionListener(new ActionListener() {
             @Override
 
@@ -109,6 +123,12 @@ public class VentanaPrincipalForms extends JFrame {
                 ColsutarSaldoForm ColsutarSaldoForm = new ColsutarSaldoForm();
             }
         });
+
+        /**
+         * Evento click del botón btnSalir
+         *
+         * Complejidad Temporal: O(1) Tiempo Constante.
+         */
 
         btnSalir.addActionListener(new ActionListener() {
             @Override
