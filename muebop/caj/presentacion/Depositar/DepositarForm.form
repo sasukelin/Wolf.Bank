@@ -179,7 +179,7 @@
             <properties>
               <enabled value="true"/>
               <font name="Arial Black" size="14"/>
-              <foreground color="-394241"/>
+              <foreground color="-131329"/>
               <text value="Cantidad de deposito"/>
             </properties>
           </component>

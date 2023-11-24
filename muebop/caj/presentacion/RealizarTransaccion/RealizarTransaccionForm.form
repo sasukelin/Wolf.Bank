@@ -37,7 +37,7 @@
             </constraints>
             <properties>
               <background color="-16777216"/>
-              <enabled value="false"/>
+              <enabled value="true"/>
               <font name="Arial Black" size="14"/>
               <foreground color="-1"/>
               <text value="Cuenta Destinario(Identificacion)"/>
@@ -71,7 +71,7 @@
             </constraints>
             <properties>
               <background color="-16777216"/>
-              <enabled value="false"/>
+              <enabled value="true"/>
               <font name="Arial Black" size="14"/>
               <foreground color="-1"/>
               <text value="Cantidad a enviar"/>
