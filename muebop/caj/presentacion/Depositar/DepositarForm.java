@@ -6,6 +6,8 @@ import presentacion.RegistroUsuario.RegistroUsuarioForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -42,7 +44,13 @@ public class DepositarForm extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Se asigna el panel principal al JFrame
         this.setContentPane(pnlPrincipal);
-
+        Color colorBordeNombre = new Color(233, 19, 52);
+        txtDeposito.setBorder(new LineBorder(colorBordeNombre));
+        txtDeposito.setPreferredSize(new Dimension(20, 35));
+        btnGuardar.setBorder(new LineBorder(new Color(233, 19, 52)));
+        btnVolver.setBorder(new LineBorder(new Color(233, 19, 52)));
+        btnVolver.setPreferredSize(new Dimension(80, 30));
+        btnGuardar.setPreferredSize(new Dimension(80, 30));
         /**
          * Evento click del botón btnGuardar
          *

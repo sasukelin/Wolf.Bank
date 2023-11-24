@@ -6,6 +6,8 @@ import presentacion.RegistroUsuario.RegistroUsuarioForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,7 +42,12 @@ public class    ColsutarSaldoForm  extends JFrame {
         // Se asigna el panel principal al JFrame
         this.setContentPane(pnlPrincipal);
 
+        Color colorBordeNombre = new Color(233, 19, 52);
 
+        btnConsultarSaldo.setBorder(new LineBorder(new Color(233, 19, 52)));
+        btnSalir.setBorder(new LineBorder(new Color(233, 19, 52)));
+        btnConsultarSaldo.setPreferredSize(new Dimension(80, 30));
+        btnSalir.setPreferredSize(new Dimension(80, 30));
         btnConsultarSaldo.addActionListener(new ActionListener() {
             @Override
             /**

@@ -6,7 +6,8 @@ import logicaNegocio.CuentaBancaria;
 import logicaNegocio.Sesiones;
 import presentacion.RegistroUsuario.RegistroUsuarioForm;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
-
+import javax.swing.border.LineBorder;
+import java.awt.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,7 @@ public class LoginForm extends JFrame {
 
     private JRadioButton recuerdaLaContraseñaRadioButton;
     private JTextField txtContraseña;
+    private JPanel pnlcolor;
     private JLabel lblimgLobo;
     private JLabel ImageLogo;
 
@@ -54,6 +56,19 @@ public class LoginForm extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Se asigna el panel principal al JFrame
         this.setContentPane(pnlPrincipal);
+
+
+        Color colorBorde = new Color(233,19,52);
+        txtEmail.setBorder(new LineBorder(colorBorde));
+        txtContraseña.setBorder(new LineBorder(colorBorde));
+        btnGuardar.setBorder(new LineBorder(new Color(255, 255, 255)));
+        btnRegister.setBorder(new LineBorder(new Color(255, 255, 255)));
+        btnRegister.setPreferredSize(new Dimension(80, 25));
+        btnGuardar.setPreferredSize(new Dimension(80, 25));
+        txtContraseña.setPreferredSize(new Dimension(20, 35));
+        txtEmail.setPreferredSize(new Dimension(20, 35));
+
+
 
 
         btnGuardar.addActionListener(new ActionListener() {

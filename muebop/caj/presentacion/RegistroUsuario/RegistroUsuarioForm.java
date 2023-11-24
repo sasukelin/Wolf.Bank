@@ -3,6 +3,8 @@ package presentacion.RegistroUsuario;
 import logicaNegocio.Banco;
 import logicaNegocio.CuentaBancaria;
 import presentacion.Login.LoginForm;
+import javax.swing.border.LineBorder;
+import java.awt.*;
 
 
 import javax.swing.*;
@@ -40,7 +42,7 @@ public class RegistroUsuarioForm extends JFrame {
         // Se asigna el panel principal al JFrame
         this.setContentPane(JPanell);
         // Se asigna el tamaño por defecto
-        this.setSize(1200, 720);
+        this.setSize(1200, 750);
         // Se asigna la posición por defecto
         this.setLocation(200, 200);
         // No se permite redimensionar la ventana
@@ -53,6 +55,55 @@ public class RegistroUsuarioForm extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         // Se asigna el panel principal al JFrame
         this.setContentPane(JPanell);
+        Color colorBordeNombre = new Color(233, 19, 52);
+        txtNombre.setBorder(new LineBorder(colorBordeNombre));
+
+        // Establecer el estilo de borde para txtSaldo
+        Color colorBordeSaldo = new Color(233, 19, 52);
+        txtSaldo.setBorder(new LineBorder(colorBordeSaldo));
+
+        // Establecer el estilo de borde para txtContraseña
+        Color colorBordeContraseña = new Color(233, 19, 52);
+        txtContraseña.setBorder(new LineBorder(colorBordeContraseña));
+
+        // Establecer el estilo de borde para txtApellido
+        Color colorBordeApellido = new Color(233, 19, 52);
+        txtApellido.setBorder(new LineBorder(colorBordeApellido));
+
+        // Establecer el estilo de borde para txtidentificacion
+        Color colorBordeIdentificacion = new Color(233, 19, 52);
+        txtidentificacion.setBorder(new LineBorder(colorBordeIdentificacion));
+
+        // Establecer el estilo de borde para txtEmail
+        Color colorBordeEmail = new Color(233, 19, 52);
+        txtEmail.setBorder(new LineBorder(colorBordeEmail));
+
+
+        // Establecer el tamaño preferido para txtNombre
+        txtNombre.setPreferredSize(new Dimension(20, 35));
+
+        // Establecer el tamaño preferido para txtSaldo
+        txtSaldo.setPreferredSize(new Dimension(20, 35));
+
+        // Establecer el tamaño preferido para txtContraseña
+        txtContraseña.setPreferredSize(new Dimension(20, 35));
+
+        // Establecer el tamaño preferido para txtApellido
+        txtApellido.setPreferredSize(new Dimension(20, 35));
+
+        // Establecer el tamaño preferido para txtidentificacion
+        txtidentificacion.setPreferredSize(new Dimension(20, 35));
+
+        // Establecer el tamaño preferido para txtEmail
+        txtEmail.setPreferredSize(new Dimension(20, 35));
+        btnGuardar.setBorder(new LineBorder(new Color(255, 255, 255)));
+
+
+        btnVolver.setBorder(new LineBorder(new Color(255, 255, 255)));
+
+        btnVolver.setPreferredSize(new Dimension(80, 30));
+        btnGuardar.setPreferredSize(new Dimension(80, 30));
+
 
         /**
          * Evento click del botón btnGuardar

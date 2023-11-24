@@ -135,7 +135,7 @@ public class VentanaPrincipalForms extends JFrame {
 
             public void actionPerformed(ActionEvent e) {
                 dispose();
-
+                LoginForm loginForm = new LoginForm();
             }
         });
 
